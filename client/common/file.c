@@ -99,8 +99,6 @@ BOOL freerdp_client_rdp_file_set_integer(rdpFile* file, char* name, int value)
 		file->PinConnectionBar = value;
 	else if (_stricmp(name, "displayconnectionbar") == 0)
 		file->DisplayConnectionBar = value;
-	else if (_stricmp(name, "workspaceid") == 0)
-		file->WorkspaceId = value;
 	else if (_stricmp(name, "enableworkspacereconnect") == 0)
 		file->EnableWorkspaceReconnect = value;
 	else if (_stricmp(name, "disable wallpaper") == 0)
@@ -263,7 +261,10 @@ BOOL freerdp_client_rdp_file_set_string(rdpFile* file, char* name, char* value)
 		file->DevicesToRedirect = value;
 	else if (_stricmp(name, "winposstr") == 0)
 		file->WinPosStr = value;
-	else
+	else if (_stricmp(name, "workspaceid") == 0 || _stricmp(name, "workspace id") == 0) {
+		// Documented in MSDN as "workspaceid", but seems to appear in files as "workspace id"
+		file->WorkspaceId = value;
+	} else
 		return FALSE;
 
 	return TRUE;
