@@ -54,7 +54,7 @@ struct rdp_file
 	DWORD PinConnectionBar; /* pinconnectionbar */
 	DWORD DisplayConnectionBar; /* displayconnectionbar */
 
-	DWORD WorkspaceId; /* workspaceid */
+	LPSTR WorkspaceId; /* workspaceid */
 	DWORD EnableWorkspaceReconnect; /* enableworkspacereconnect */
 
 	DWORD DisableWallpaper; /* disable wallpaper */
